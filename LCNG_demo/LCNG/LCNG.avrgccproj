@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>5.0</ProjectVersion>
+    <ProjectGuid>{486386bc-9e83-4e46-a1e0-e9590602757e}</ProjectGuid>
+    <avrdevice>ATmega1280</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFile>$(MSBuildProjectName).elf</OutputFile>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <UseGlobalToolchain>True</UseGlobalToolchain>
+    <ToolchainDirPath>
+    </ToolchainDirPath>
+    <MakeDirPath>
+    </MakeDirPath>
+    <GlobalToolchainPath>d:\Program Files (x86)\Atmel\AVR Studio 5.0\AVR ToolChain\bin</GlobalToolchainPath>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>LCNG</AssemblyName>
+    <Name>LCNG</Name>
+    <RootNamespace>LCNG</RootNamespace>
+    <avrtool>com.atmel.avrdbg.tool.jtagicemkii</avrtool>
+    <avrtoolinterface>JTAG</avrtoolinterface>
+    <com_atmel_avrdbg_tool_jtagicemkii>
+      <ToolType>com.atmel.avrdbg.tool.jtagicemkii</ToolType>
+      <ToolName>JTAGICE mkII</ToolName>
+      <ToolNumber>00A000001226</ToolNumber>
+      <Channel>
+        <host>127.0.0.1</host>
+        <port>1217</port>
+        <ssl>False</ssl>
+      </Channel>
+      <ToolOptions>
+        <InterfaceName>JTAG</InterfaceName>
+        <InterfaceProperties>
+          <JtagDbgClock>0</JtagDbgClock>
+          <JtagProgClock>1000000</JtagProgClock>
+          <IspClock>150000</IspClock>
+          <JtagInChain>false</JtagInChain>
+          <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
+          <JtagDevicesBefore>0</JtagDevicesBefore>
+          <JtagDevicesAfter>0</JtagDevicesAfter>
+          <JtagInstrBitsBefore>0</JtagInstrBitsBefore>
+          <JtagInstrBitsAfter>0</JtagInstrBitsAfter>
+        </InterfaceProperties>
+      </ToolOptions>
+    </com_atmel_avrdbg_tool_jtagicemkii>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolName xmlns="">AVR Simulator</ToolName>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <Channel xmlns="">
+        <host>127.0.0.1</host>
+        <port>54767</port>
+        <ssl>False</ssl>
+      </Channel>
+    </com_atmel_avrdbg_tool_simulator>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>F_CPU=7372800UL</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../includes</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>printf_flt</Value>
+            <Value>m</Value>
+            <Value>liblcng_kernel</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.libraries.LibrarySearchPaths>
+          <ListValues>
+            <Value>../kernel</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.LibrarySearchPaths>
+        <avrgcc.linker.miscellaneous.LinkerFlags>-o2 -u vfprintf</avrgcc.linker.miscellaneous.LinkerFlags>
+      </AvrGcc>
+    </ToolchainSettings>
+    <MemorySettings>
+      <MemorySegments>
+        <InitialStack IsEnabled="0">
+          <Address>0xfe00</Address>
+        </InitialStack>
+      </MemorySegments>
+    </MemorySettings>
+    <GenerateHexFile>True</GenerateHexFile>
+    <GenerateMapFile>True</GenerateMapFile>
+    <GenerateListFile>True</GenerateListFile>
+    <GenerateEepFile>True</GenerateEepFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-g2)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+    <MemorySettings>
+    </MemorySettings>
+    <GenerateHexFile>True</GenerateHexFile>
+    <GenerateMapFile>True</GenerateMapFile>
+    <GenerateListFile>True</GenerateListFile>
+    <GenerateEepFile>True</GenerateEepFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="kernel" />
+    <Folder Include="driver" />
+    <Folder Include="app" />
+    <Folder Include="includes" />
+    <Folder Include="ctrl" />
+    <Folder Include="source" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\iccard.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\lcngctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\protocol.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\pswchk.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="app\store.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ctrl\cngctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ctrl\fixctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ctrl\lngctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ctrl\vctrl.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\flash.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\iic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\key.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\modbus.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\print.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\splc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driver\uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\app.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\card.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\factory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\flash.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\global_def.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\iic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\kernel.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\key.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\lcngctrl.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\modbus.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\print.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\protocol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\qry.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\set.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\splc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\store.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\sysparas.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\ui.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\common.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\factory.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\main_ui.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\module.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\operate.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\password.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\price.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\qry.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\set.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="source\sysparas.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="kernel\liblcng_kernel.a">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
+</Project>
